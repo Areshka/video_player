@@ -1,0 +1,385 @@
+body {
+  background: url(../img/background.png);
+  background-size: cover;
+}
+
+#videoContainer {
+  width: 700px;
+  margin: 0 auto;
+  position: relative;
+  background: #000000;
+  color: #ffffff;
+  font-size: 0;
+  box-shadow: 0 0 10px 5px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+}
+
+#videoContainer video {
+  width: 100%;
+}
+
+#videoContainer:hover #video-controls {
+  transform: translateY(0);
+}
+
+#video-controls {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  z-index: 2147483647;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  min-height: 52px;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+  font-size: 0;
+  background-color: rgb(0, 0, 0);
+  opacity: 0.8;
+  transform: translateY(100%);
+  transition: all 0.5s ease;
+}
+
+#video-controls li {
+  display: inline-block;
+  margin-right: 15px;
+  font-size: 14px;
+  text-align: center;
+  height: 30px;
+  /* background-color: green; */
+}
+
+#video-controls li:last-child {
+  margin-right: 0;
+}
+
+button {
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  color: #4a4a4a;
+  transition: color .2s linear;
+}
+
+button:hover {
+  color: #d51414;
+}
+
+#playpause,
+#stop {
+  position: relative;
+  width: 20px;
+  height: 30px;
+  font-size: 0;
+}
+
+#stop {
+  /* margin-right: 10px; */
+}
+
+#playpause::before,
+#stop::before {
+  content: '\e905';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 20px;
+  height: 30px;
+  font-family: "icomoon";
+  line-height: 30px;
+  font-size: 18px;
+}
+
+#playpause.play::before {
+  content: '\e905';
+}
+
+#playpause.pause::before {
+  content: '\e904';
+}
+
+#stop::before {
+  content: '\ea1e';
+}
+
+#video-controls .currentTime {
+  margin-right: 5px;
+}
+
+#currentTime, #duration {
+  font-family: 'Helvetica', sans-serif;
+  font-size: 12px;
+  line-height: 30px;
+  font-weight: bold;
+  text-shadow: 0 1px 1px rgba(255, 0, 0, 0.8);
+  color: #d51414;
+}
+
+#video-controls li.progress {
+  font-size: 0;
+  margin-right: 5px;
+}
+
+#progress { /* контейнер */
+  margin-top: 12.5px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border: none; /* убрать рамку в Firefox */
+  width: 300px;
+  height: 5px;
+  color: #d51414; /* цветная линия-индикатор в IE */
+  background: #4a4a4a;
+  border-radius: 1px;
+  cursor: pointer;
+}
+
+#progress::-webkit-progress-bar { /* контейнер в Webkit */
+  border-radius: 1px;
+  background: #4a4a4a;
+}
+#progress::-moz-progress-bar { /* линия-индикатор в Firefox */
+  position: relative;
+  top: -1px;
+  height: 6px;
+  background: #d51414;
+}
+#progress::-webkit-progress-value { /* линия-индикатор в Webkit */
+  position: relative;
+  top: -1px;
+  height: 7px;
+  background: #d51414;
+  -webkit-animation: animate-stripes 4s linear infinite;
+}
+@-webkit-keyframes animate-stripes {
+  0% { background-position: 0 0, 0 0, 0 0; }
+  100% { background-position: -105px 0, 0 0, 0 0; }
+}
+
+#mute {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  font-size: 0;
+  color: #4a4a4a;
+}
+
+#mute:hover {
+  color: #d51414;
+}
+
+#mute::before {
+  content: '\e902';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 20px;
+  height: 20px;
+  font-family: "icomoon";
+  line-height: 20px;
+  font-size: 18px;
+  font-weight: bold;
+  /* background-color: yellow; */
+}
+
+#mute.play::before {
+  content: '\e902';
+}
+
+#mute.q1::before {
+  content: '\e901';
+}
+
+#mute.muted::before {
+  content: '\e900';
+}
+
+#video-controls li.volumeRange {
+  font-size: 0;
+  display: flex;
+  align-items: center;
+}
+
+#volumeRange {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  width: 100px;
+  height: 5px;
+  background: #4a4a4a;
+  outline: none;
+  border-radius: 1px;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+#volumeRange::-webkit-slider-thumb{
+  -webkit-appearance: none;
+  appearance: none;
+  width: 0;
+  height: 0;
+  background: red;
+  box-shadow: -2145px 0 0 2144px #d51414;
+  border-radius: 0;
+  cursor:pointer;
+}
+
+#volumeRange::-moz-range-track {
+  -moz-appearance: none;
+  height: 10px;
+  background: #4a4a4a;
+  border: 2px sollid yellow;
+  outline: none;
+}
+
+#volumeRange::-moz-range-thumb {
+  -moz-appearance: none;
+  width: 0;
+  height: 0;
+  background: red;
+  box-shadow: -2145px 0 0 2144px #d51414;
+  border-radius: 0;
+  cursor:pointer;
+}
+
+#volumeRange:focus {
+  outline: none; /* Removes the blue border. You should probably do some kind of focus styling for accessibility reasons though. */
+}
+
+#volumeRange::-ms-track {
+  cursor: pointer;
+  /* Hides the slider so custom styles can be added */
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+  width: 100px;
+  height: 5px;
+  overflow: hidden;
+}
+
+#volumeRange::-ms-fill-upper {
+    background-color: #4a4a4a;
+}
+
+#volumeRange::-ms-fill-lower {
+    background-color: #d51414;
+}
+
+#fs {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  font-size: 0;
+  color: #4a4a4a;
+}
+
+#fs:hover {
+  color: #d51414;
+}
+
+#fs::before {
+  content: '\e907';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30px;
+  height: 30px;
+  font-family: "icomoon";
+  line-height: 30px;
+  font-size: 30px;
+  font-weight: bold;
+  /* background-color: yellow; */
+}
+
+#fs.full::before {
+  content: '\e907';
+}
+
+#fs.exitFull::before {
+  content: '\e906';
+}
+
+video::-webkit-media-controls { display: none! Important; }
+
+#videoContainer:-webkit-full-screen video {
+  height: 100%;
+  width: 100%;
+}
+
+#videoContainer:-moz-full-screen video {
+  height: 100%;
+  width: 100%;
+}
+
+#videoContainer:-ms-fullscreen video {
+  height: 100%;
+  width: 100%;
+}
+
+#videoContainer:fullscreen video {
+  height: 100%;
+  width: 100%;
+}
+
+/* Chrome, Safari and Opera syntax */
+#videoContainer:-webkit-full-screen {
+  background-color: #000000;
+}
+
+/* Firefox syntax */
+#videoContainer:-moz-full-screen {
+  background-color: #000000;
+}
+
+/* IE/Edge syntax */
+#videoContainer:-ms-fullscreen {
+  background-color: #000000;
+}
+
+/* Standard syntax */
+#videoContainer:fullscreen {
+  background-color: #000000;
+}
+
+
+@media (max-width: 700px) {
+
+  #videoContainer {
+    width: 100%;
+  }
+
+  #video-controls {
+
+  }
+
+  #video-controls .currentTime {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
+
+  #video-controls .duration {
+    position: absolute;
+    top: 0;
+    right: -10px;
+  }
+
+  #currentTime, #duration {
+    font-size: 12px;
+    line-height: 12px;
+  }
+
+  #progress {
+    position: absolute;
+    top: -17px;
+    left: 0;
+    width: 100%;
+  }
+
+}
