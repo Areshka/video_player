@@ -22,10 +22,10 @@ if (supportsVideo) {
   videoContainer.addEventListener('touchstart', function(e) {
     setTimeout( function(){
       videoControls.style.transform = 'translateY(0)';
-    }, 500);
+    }, 100);
     setTimeout( function(){
       videoControls.style.transform = 'translateY(100%)';
-    }, 3000);
+    }, 4000);
   });
 
   playpause.addEventListener('click', function(e) {
@@ -110,6 +110,12 @@ if (supportsVideo) {
 
   fs.addEventListener('click', function(e) {
     handleFullscreen();
+  });
+
+  window.addEventListener('keydown', function (event) {
+    if (event.keyCode === 27) {    
+      fs.className = "full";
+    }
   });
 
   // Функция проверяет находится ли браузер в полноэкранном режиме вызывая другую функцию isFullScreen()
