@@ -19,6 +19,15 @@ if (supportsVideo) {
   volumeRange.setAttribute('max', '100');
   var fullscreen = document.getElementById('fs');
 
+  videoContainer.addEventListener('touchstart', function(e) {
+    setTimeout( function(){
+      videoControls.style.transform = 'translateY(0)';
+    }, 500);
+    setTimeout( function(){
+      videoControls.style.transform = 'translateY(100%)';
+    }, 3000);
+  });
+
   playpause.addEventListener('click', function(e) {
     if (video.paused || video.ended) {
       playpause.className = "pause";
