@@ -13,20 +13,20 @@
 
 <body>
   <div id="videoContainer">
+    <img id='loading' src="img/balls_loading.gif" alt="Загрузка">
     <video id="video" controls preload="metadata" poster="img/posterLMaroon5Sugar.jpg">
-      <source src="video/Maroon_5_-_Sugar.mp4" type="video/mp4">
-      <source src="video/Maroon_5_-_Sugar.webm" type="video/webm">
-      <source src="video/Maroon_5_-_Sugar.ogg" type="video/ogg">
+      <source src="video/Maroon_5_-_Sugar[720].mp4" type="video/mp4">
+
       <!-- Flash fallback -->
-      <object type="application/x-shockwave-flash" data="flash-player.swf?videoUrl=video/Maroon_5_-_Sugar.mp4" width="1024" height="576">
-        <param name="movie" value="flash-player.swf?videoUrl=video/Maroon_5_-_Sugar.mp4" />
+      <object type="application/x-shockwave-flash" data="flash-player.swf?videoUrl=video/Maroon_5_-_Sugar[240].mp4" width="1024" height="576">
+        <param name="movie" value="flash-player.swf?videoUrl=video/Maroon_5_-_Sugar[240].mp4" />
         <param name="allowfullscreen" value="true" />
         <param name="wmode" value="transparent" />
-        <param name="flashvars" value="controlbar=over&amp;image=img/posterLSD.jpg&amp;file=flash-player.swf?videoUrl=video/Maroon_5_-_Sugar.mp4" />
+        <param name="flashvars" value="controlbar=over&amp;image=img/posterLSD.jpg&amp;file=flash-player.swf?videoUrl=video/Maroon_5_-_Sugar[240].mp4" />
         <img alt="Tears of Steel poster image" src="img/posterLMaroon5Sugar.jpg" width="1024" height="428" title="No video playback possible, please download the video from the link below" />
       </object>
       <!-- Offer download -->
-      <a href="video/Maroon_5_-_Sugar.mp4">Download MP4</a>
+      <a href="video/Maroon_5_-_Sugar[240].mp4">Download MP4</a>
     </video>
     <ul id="video-controls" class="controls">
       <li><button id="playpause" type="button">Play/Pause</button></li>
@@ -42,6 +42,16 @@
       <li class="volumeRange">
         <button id="mute" type="button">Mute/Unmute</button>
         <input id="volumeRange" type="range" name="volume" value="80" min="0">
+      </li>
+      <li>
+        <div class="selectWrapper">
+          <select id="quality" name="quality">
+            <option value="720">720p</option>
+            <option value="480">480p</option>
+            <option value="360">360p</option>
+            <option value="240">240p</option>
+          </select>
+        </div>
       </li>
       <li><button id="fs" type="button">Fullscreen</button></li>
     </ul>
