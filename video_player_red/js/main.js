@@ -7,7 +7,7 @@ if (supportsVideo) {
   var video = document.getElementById('video'); // ссылка на контейнер видео
   var sources = video.getElementsByTagName('source'); // ссылка на элемент source
   var quality = document.getElementById('quality');
-  sources[0].src = 'video/Maroon_5_-_Sugar[240].mp4'; // источник видео по умолчанию
+  sources[0].src = '../video/Maroon_5_-_Sugar[240].mp4'; // источник видео по умолчанию
   quality.options[0].selected = true; // выбран первый пункт select
 
   var videoControls = document.getElementById('video-controls'); // ссылка на контейнер для элементов управления
@@ -27,9 +27,6 @@ if (supportsVideo) {
 
   var loading = document.getElementById('loading');
   // loading.style.display = 'block';
-
-
-
 
   videoContainer.addEventListener('touchstart', function(e) {
     setTimeout(function() {
@@ -329,13 +326,13 @@ function closeAllSelect(elmnt) {
 
 function changeSourceVideo(elem) {
   if (elem.innerHTML == '720p') {
-    sources[0].src = 'video/Maroon_5_-_Sugar[720].mp4';
+    sources[0].src = '../video/Maroon_5_-_Sugar[720].mp4';
   } else if (elem.innerHTML == '480p') {
-    sources[0].src = 'video/Maroon_5_-_Sugar[480].mp4';
+    sources[0].src = '../video/Maroon_5_-_Sugar[480].mp4';
   } else if (elem.innerHTML == '360p') {
-    sources[0].src = 'video/Maroon_5_-_Sugar[360].mp4';
+    sources[0].src = '../video/Maroon_5_-_Sugar[360].mp4';
   } else if (elem.innerHTML == '240p') {
-    sources[0].src = 'video/Maroon_5_-_Sugar[240].mp4';
+    sources[0].src = '../video/Maroon_5_-_Sugar[240].mp4';
   }
 
   video.load();
